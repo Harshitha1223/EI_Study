@@ -1,0 +1,9 @@
+# Payment Processing System - Strategy Pattern
+
+## **Description**
+The Payment Processing System uses the Strategy Pattern to implement different payment methods such as credit card and PayPal. The strategy pattern allows selecting a payment method dynamically at runtime.
+
+## **Design Pattern Overview**
+The **Strategy Pattern** defines a family of algorithms and makes them interchangeable. The client can dynamically choose which algorithm to use.
+
+## **UML Diagram**

@@ -1,0 +1,44 @@
+
+---
+
+### **Creational Design Patterns:**
+
+#### **Use Case 3: Singleton Pattern - Configuration Manager**
+
+**Java Code:**
+```java
+class ConfigurationManager {
+    private static ConfigurationManager instance;
+    private String configSetting;
+
+    private ConfigurationManager() {
+        configSetting = "Default Configuration";
+    }
+
+    public static synchronized ConfigurationManager getInstance() {
+        if (instance == null) {
+            instance = new ConfigurationManager();
+        }
+        return instance;
+    }
+
+    public void setConfigSetting(String setting) {
+        configSetting = setting;
+    }
+
+    public String getConfigSetting() {
+        return configSetting;
+    }
+}
+
+public class SingletonPatternDemo {
+    public static void main(String[] args) {
+        ConfigurationManager config1 = ConfigurationManager.getInstance();
+        System.out.println("Initial Setting: " + config1.getConfigSetting());
+
+        ConfigurationManager config2 = ConfigurationManager.getInstance();
+        config2.setConfigSetting("Updated Configuration");
+
+        System.out.println("Updated Setting from config1: " + config1.getConfigSetting());
+    }
+}

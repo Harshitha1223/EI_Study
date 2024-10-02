@@ -1,0 +1,21 @@
+
+MarsRoverSimulation
+└── MarsRover
+    ├── +move()
+    ├── +turnLeft()
+    ├── +turnRight()
+    ├── +getStatus()
+└── Direction
+    ├── +left()
+    ├── +right()
+└── Grid
+    ├── -width
+    ├── -height
+    ├── -obstacles
+└── Point
+└── Command (interface)
+    ├── MoveCommand
+    ├── LeftCommand
+    ├── RightCommand
+└── RoverController
+    ├── +executeCommands()

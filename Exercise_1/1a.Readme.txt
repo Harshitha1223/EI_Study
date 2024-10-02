@@ -1,0 +1,53 @@
+# Stock Price Monitoring System - Observer Pattern
+
+## **Description**
+The Stock Price Monitoring System is designed using the Observer Pattern. It is a console-based application that simulates a stock market where multiple investors (observers) receive notifications whenever there is a change in the stock price.
+
+## **Design Pattern Overview**
+The **Observer Pattern** is a behavioral design pattern that defines a one-to-many relationship between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
+## **UML Diagram**
+![Observer UML Diagram](https://i.imgur.com/QxemPv1.png)
+
+## **Project Structure**
+- `Observer` interface: Defines the update method that will be called to notify observers.
+- `Investor` class: Concrete implementation of the Observer interface.
+- `Subject` interface: Maintains a list of observers and notifies them of any changes.
+- `StockMarket` class: Concrete implementation of the Subject interface.
+- `ObserverPatternDemo` class: The main driver class that demonstrates the Observer Pattern in action.
+
+## **Use Case Scenarios**
+1. **Adding Investors:** The stock market can register investors as observers.
+2. **Stock Price Updates:** When a stock price is updated, all registered investors receive a notification with the new price.
+3. **Removing Investors:** Investors can be removed from the notification list, and they will no longer receive updates.
+4. **Handling Multiple Stocks:** The system can update prices for different stocks (e.g., AAPL, GOOGL, MSFT) and notify all the observers.
+
+## **Code Walkthrough**
+1. **Observer Interface (`Observer.java`):**
+   - Defines a method `update(String stockSymbol, double stockPrice)` that all observers must implement.
+   
+2. **Concrete Observer (`Investor.java`):**
+   - Implements the `Observer` interface and receives stock price updates.
+   
+3. **Subject Interface (`Subject.java`):**
+   - Manages the registration, removal, and notification of observers.
+   
+4. **Concrete Subject (`StockMarket.java`):**
+   - Implements the `Subject` interface and notifies all registered observers whenever a stock price changes.
+
+## **How to Run**
+1. Clone the repository.
+2. Compile and run the `ObserverPatternDemo` class.
+3. The console will display notifications sent to each investor based on stock price changes.
+
+## **Edge Cases and Solutions**
+1. **No Observers Registered:**
+   - **Issue:** If no investors are registered, no notifications will be sent.
+   - **Solution:** Handle gracefully with a message indicating no observers are registered.
+
+2. **Removing Non-Existent Observer:**
+   - **Issue:** Trying to remove an observer not registered.
+   - **Solution:** Check if the observer exists before attempting to remove.
+
+## **Conclusion**
+The Observer Pattern is ideal for scenarios where multiple objects need to react to changes in another object’s state. It promotes loose coupling and allows for dynamic addition and removal of observers.

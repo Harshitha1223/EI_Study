@@ -1,0 +1,10 @@
++--------------------------+
+| ConfigurationManager     |
++--------------------------+
+| -instance: Configuration |
+| -configSetting: String   |
++--------------------------+
+| +getInstance(): Config   |
+| +setConfigSetting(): void|
+| +getConfigSetting(): String |
++--------------------------+

@@ -1,0 +1,39 @@
+
+## **Project Structure**
+- `FileComponent` Interface: Defines a common interface for both individual files and folders.
+- `File` Class: A leaf component representing individual files. Implements `FileComponent`.
+- `Folder` Class: A composite component that can contain files and other folders. Implements `FileComponent` and stores child components.
+- `CompositePatternDemo` Class: The main driver class that demonstrates the Composite Pattern in action by creating a folder structure and displaying its contents.
+
+## **Use Case Scenarios**
+1. **Single File Display:**
+   - Create a `File` object and display its details.
+   
+2. **Single Folder with Multiple Files:**
+   - Create a `Folder` containing multiple `File` objects and display the details of the entire folder.
+   
+3. **Nested Folder Structure:**
+   - Create a `Folder` containing another folder, which in turn contains multiple files. Display the details to show the hierarchical structure.
+   
+4. **Dynamic Addition of Files and Folders:**
+   - Add or remove files and folders dynamically, and display the updated structure.
+
+## **Code Walkthrough**
+1. **FileComponent Interface (`FileComponent.java`):**
+   - Defines a common method `showDetails()` that both files and folders must implement.
+   
+2. **Leaf Class (`File.java`):**
+   - Represents an individual file. Implements the `showDetails()` method to display file details.
+   
+3. **Composite Class (`Folder.java`):**
+   - Represents a folder that can contain multiple files and subfolders. Implements `showDetails()` to recursively display its contents.
+   
+4. **Main Class (`CompositePatternDemo.java`):**
+   - Creates a file system structure with nested folders and files, and demonstrates how the `showDetails()` method is used to display the entire structure.
+
+## **How to Run**
+1. Clone the repository.
+2. Compile and run the `CompositePatternDemo` class.
+3. The console will display the file system structure with the hierarchy of folders and files.
+
+### **Example Output:**

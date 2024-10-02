@@ -1,0 +1,63 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// Observer Interface
+interface Observer {
+    void update(String stockSymbol, double stockValue);
+}
+
+// Concrete Observer
+class Investor implements Observer {
+    private String name;
+
+    public Investor(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void update(String stockSymbol, double stockValue) {
+        System.out.println("Investor " + name + " notified. " + stockSymbol + ": $" + stockValue);
+    }
+}
+
+// Subject
+class StockMarket {
+    private List<Observer> observers = new ArrayList<>();
+    private String stockSymbol;
+    private double stockValue;
+
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void setStockValue(String stockSymbol, double stockValue) {
+        this.stockSymbol = stockSymbol;
+        this.stockValue = stockValue;
+        notifyAllObservers();
+    }
+
+    private void notifyAllObservers() {
+        for (Observer observer : observers) {
+            observer.update(stockSymbol, stockValue);
+        }
+    }
+}
+
+// Client Code
+public class ObserverPatternDemo {
+    public static void main(String[] args) {
+        StockMarket stockMarket = new StockMarket();
+        Investor investor1 = new Investor("John");
+        Investor investor2 = new Investor("Doe");
+
+        stockMarket.addObserver(investor1);
+        stockMarket.addObserver(investor2);
+
+        stockMarket.setStockValue("AAPL", 123.45);
+        stockMarket.setStockValue("GOOG", 789.12);
+    }
+}

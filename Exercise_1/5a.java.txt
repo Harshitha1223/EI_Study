@@ -1,0 +1,31 @@
+interface MediaPlayer {
+    void play(String audioType, String fileName);
+}
+
+class VLCPlayer {
+    public void playVLC(String fileName) {
+        System.out.println("Playing VLC file: " + fileName);
+    }
+}
+
+class MP4Player {
+    public void playMP4(String fileName) {
+        System.out.println("Playing MP4 file: " + fileName);
+    }
+}
+
+class MediaAdapter implements MediaPlayer {
+    VLCPlayer vlcPlayer;
+    MP4Player mp4Player;
+
+    public MediaAdapter(String audioType) {
+        if (audioType.equalsIgnoreCase("VLC")) vlcPlayer = new VLCPlayer();
+        else if (audioType.equalsIgnoreCase("MP4")) mp4Player = new MP4Player();
+    }
+
+    @Override
+    public void play(String audioType, String fileName) {
+        if (audioType.equalsIgnoreCase("VLC")) vlcPlayer.playVLC(fileName);
+        else if (audioType.equalsIgnoreCase("MP4")) mp4Player.playMP4(fileName);
+    }
+}

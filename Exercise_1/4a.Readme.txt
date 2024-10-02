@@ -1,0 +1,31 @@
+
+## **Use Case Scenarios**
+1. **Create Circle Object:**
+   - **Input:** "CIRCLE"
+   - **Expected Output:** Creates a Circle object and calls the `draw()` method, printing "Drawing a Circle".
+   
+2. **Create Square Object:**
+   - **Input:** "SQUARE"
+   - **Expected Output:** Creates a Square object and calls the `draw()` method, printing "Drawing a Square".
+   
+3. **Invalid Shape Type:**
+   - **Input:** "TRIANGLE"
+   - **Expected Output:** Returns `null` or an error message indicating that the shape type is not supported.
+
+## **Code Walkthrough**
+1. **Shape Interface:**
+   - Defines the `draw()` method that all concrete shape classes must implement.
+   
+2. **Concrete Classes (Circle, Square):**
+   - Implement the `Shape` interface and define the `draw()` method to display the shape type.
+
+3. **ShapeFactory Class:**
+   - Contains a method `getShape()` that returns the appropriate `Shape` object based on the input parameter.
+
+## **How to Run**
+1. Clone the repository.
+2. Compile and run the `FactoryPatternDemo` class.
+3. Provide different inputs to `getShape()` and call the `draw()` method to observe the output.
+
+## **Conclusion**
+The Factory Pattern provides flexibility in object creation, making it easier to introduce new types of objects without modifying the client code.

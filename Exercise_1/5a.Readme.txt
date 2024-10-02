@@ -1,0 +1,34 @@
+
+## **Use Case Scenarios**
+1. **Playing VLC File:**
+   - **Input:** "sample.vlc"
+   - **Expected Output:** The adapter uses `VLCPlayer` to play the file.
+   
+2. **Playing MP4 File:**
+   - **Input:** "sample.mp4"
+   - **Expected Output:** The adapter uses `MP4Player` to play the file.
+   
+3. **Unsupported Format:**
+   - **Input:** "sample.avi"
+   - **Expected Output:** Error message indicating the format is not supported.
+
+## **Code Walkthrough**
+1. **MediaPlayer Interface:**
+   - Defines the `play()` method that all concrete classes must implement.
+   
+2. **VLCPlayer and MP4Player:**
+   - Implement their respective play methods.
+   
+3. **MediaAdapter Class:**
+   - Acts as a bridge between `MediaPlayer` and `AdvancedMediaPlayer`.
+
+4. **AudioPlayer Class:**
+   - Uses the adapter to support multiple formats.
+
+## **How to Run**
+1. Clone the repository.
+2. Compile and run the `AdapterPatternDemo` class.
+3. Provide different file types and observe how the adapter switches between different player implementations.
+
+## **Conclusion**
+The Adapter Pattern is ideal for enabling two incompatible interfaces to work together without modifying existing code.

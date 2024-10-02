@@ -1,0 +1,30 @@
+
+## **Use Case Scenarios**
+1. **Single Instance:** 
+   - If the configuration is accessed from multiple points in the application, all should reference the same instance.
+   
+2. **Updating Configuration:**
+   - If a configuration setting is updated from one instance, it should reflect in all other parts of the application.
+
+3. **Lazy Initialization:**
+   - The configuration object is created only when accessed for the first time.
+
+## **Code Walkthrough**
+1. **ConfigurationManager Class:**
+   - The `ConfigurationManager` class has a private constructor to prevent direct instantiation.
+   - The `getInstance()` method ensures that only one instance is created.
+   
+2. **getConfigSetting() and setConfigSetting():**
+   - These methods allow accessing and modifying the configuration setting.
+   
+## **How to Run**
+1. Clone the repository.
+2. Compile and run the `SingletonPatternDemo` class.
+3. Observe that changes made from any point in the application are consistent across all references to the `ConfigurationManager` object.
+
+## **Edge Cases and Solutions**
+1. **Multiple Threads Instantiating the Singleton:**
+   - **Solution:** Use `synchronized` or double-checked locking to ensure thread safety.
+
+## **Conclusion**
+The Singleton Pattern is ideal for scenarios requiring a single global instance, such as configurations or logging. This implementation ensures thread safety and lazy initialization.
